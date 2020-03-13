@@ -12,10 +12,6 @@ const mapStyle = {
     height: '100%',
     widht: '100%'
 };
-const mapCenter = {
-    lat: 41.01384,
-    lng: 28.94966
-};
 
 const Maper = (props) => {
 
@@ -24,12 +20,12 @@ const Maper = (props) => {
         <div style={mapWrapper}>
             <Map
                 google={props.google}
-                zoom={8}
-                initialCenter={mapCenter}
+                zoom={6}
+                initialCenter={props.mapCenter}
                 style={mapStyle}
             >
                 {/*Calling Markers with position ! */}
-                <Marker position={mapCenter} />
+                <Marker position={props.mapCenter} />
             </Map>
         </div>
     )
@@ -37,5 +33,5 @@ const Maper = (props) => {
 
 export default GoogleApiWrapper({
     //Get your api Key from google cloud console !
-    apiKey: 'YOUR_API_KEY_HERE'
+    apiKey: 'YOUR_API_KEY_HERE !!!'
 })(Maper)

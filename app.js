@@ -1,9 +1,13 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState, useContext} from 'react'
 import ReactDom from 'react-dom'
 
 
 //Comps
 import Maper from './Map'
+
+//Context
+import ThemeContext from './fnComps/ThemeContext'
+
 
 //Function Components
 //********** DO NOT FORGET TO COMMAND/UNCOMMENT BELOW LINES FOR FUNCTION COMPONENTS *********
@@ -16,14 +20,19 @@ import ClassLocations from '/classComps/LocationProvider'
 
 const App = () => {
 
+    //We use , useState hook for getting theme changes correctly
+    const theme = useState(ThemeContext);
+
     return(
        <Fragment>
-           {/*Function Components*/}
-           {/*<Locations/>*/}
-           <MyDropDown/>
-           <hr/>
-           {/*Class Components*/}
-           <ClassLocations/>
+           <ThemeContext.Provider value={theme}>
+               {/*Function Components*/}
+               {/*<Locations/>*/}
+               <MyDropDown/>
+               <hr/>
+               {/*Class Components*/}
+               {/*<ClassLocations/>*/}
+           </ThemeContext.Provider>
        </Fragment>
     )
 };

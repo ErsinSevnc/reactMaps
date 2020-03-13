@@ -5,7 +5,7 @@ import React, {Fragment, useState} from 'react'
 import ShowLocations from './FromLocations'
 
 
-const Locations = () => {
+const Locations = (props) => {
 
     //Now the beauty of React; Hooks. As you can see we are in Function Component and we have different style than Class Comps
     //First Things first, you do not have to extend from something. This is just a JavaScript Function. We defined our Component above.
@@ -19,14 +19,14 @@ const Locations = () => {
                 izmir : ['Karşıyaka', 'Bostanlı', 'Alsancak', 'Konak']
             });
 
-    function handleClick(e){
-        setLocations( )
-    }
+
 
     //Function Components does not need some other methods to return smth !
     return(
         <Fragment>
-            <ShowLocations mapLocations={locations} />
+            {props.city == 'istanbul' ? <ShowLocations mapLocations={locations.istanbul} />
+                : props.city == 'izmir' ?  <ShowLocations mapLocations={locations.izmir} />
+                : null}
         </Fragment>
     )
 };
